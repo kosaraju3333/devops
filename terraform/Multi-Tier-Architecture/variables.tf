@@ -89,3 +89,7 @@ variable "portal-web-LT-instance-type" {
 variable "portal-web-app-TG-name" {
     description = "Name of portal-web-app-TG"
 }
+
+variable "route53-public-zone-id" {
+    description = "public zone-id "
+}

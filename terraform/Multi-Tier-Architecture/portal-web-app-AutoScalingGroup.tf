@@ -16,7 +16,7 @@ resource "aws_autoscaling_group" "portal-web-asg" {
     max_size           = 1
     min_size           = 1
     health_check_type  = "EC2"
-    vpc_zone_identifier = [aws_subnet.portal-vpc-private-subnet-1.id, aws_subnet.portal-vpc-private-subnet-2.id ]
+    vpc_zone_identifier = [aws_subnet.portal-vpc-public-subnet-1.id, aws_subnet.portal-vpc-public-subnet-2.id ]
     
     launch_template {
         id      = aws_launch_template.portal-web-LT.id
