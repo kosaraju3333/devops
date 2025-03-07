@@ -93,3 +93,15 @@ variable "portal-web-app-TG-name" {
 variable "route53-public-zone-id" {
     description = "public zone-id "
 }
+
+variable "portal-app-db-instance-type" {
+    description = "Instance type for db-instance"
+}
+
+variable "portal-app-db-instance-name" {
+    description = "name of portal-DB instance"
+}
+
+variable "route53-private-zone-id" {
+    description = "private zone-id "
+}
