@@ -69,3 +69,23 @@ variable "elastic-ip-NAT-name" {
 variable "portal-vpc-NAT-gateway-name" {
     description = "Name of Portal-vpc-NAT"
 }
+
+variable "portal-web-instance-type" {
+    description = "Portal web instance type"
+}
+
+variable "portal-web-instance-name" {
+    description = "Portal web instance Name"
+}
+
+variable "portal-web-LT-name" {
+    description = "Name of portal-web-LT"
+}
+
+variable "portal-web-LT-instance-type" {
+    description = "Instance type for  of portal-web-LT"
+}
+
+variable "portal-web-app-TG-name" {
+    description = "Name of portal-web-app-TG"
+}
