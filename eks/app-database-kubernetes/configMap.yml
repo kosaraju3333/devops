@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: portal-app-configmap
+  namespace: portal-app
+data:
+  host: "db.spontansolutions.com"
+  port: "5432"

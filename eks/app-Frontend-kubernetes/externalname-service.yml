@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgres-service
+  namespace: portal-app
+spec:
+  type: ExternalName
+  externalName: portal-database-service.portal-database.svc.cluster.local
+  ports:
+  - port: 1234
+    protocol: TCP
+    targetPort: 5432
+ 

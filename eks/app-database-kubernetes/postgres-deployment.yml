@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portal-database-deployment
+  namespace: portal-database
+  labels:
+    app: portal-database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portal-database
+  template:
+    metadata:
+      name: portal-database-app
+      labels:
+        app: portal-database
+    spec:
+      containers:
+      - name: portal-database-container
+        image: kosaraju333/portal-application-database:V1
+          #image: postgres:latest
+        env:
+        - name: PGDATA
+          value: "/var/lib/postgresql/data/pgdata"
+
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: portal-database-secrets
+              key: user
+
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: portal-database-secrets
+              key: password
+
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: portal-database-secrets
+              key: database
+
+        volumeMounts:
+          - mountPath: /var/lib/postgresql/data
+            name: postgres-db
+
+        ports:
+        - containerPort: 5432
+
+      volumes:
+       - name: postgres-db
+         persistentVolumeClaim:
+           claimName: postgres-ebs-pvc-sc    

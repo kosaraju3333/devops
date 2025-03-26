@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: portal-app-service
+  namespace: portal-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: portal-app
+  ports:
+    # Below Port number is a service port number
+    - port: 80
+      # Below targetPort is a Container Port number
+      targetPort: 3000
